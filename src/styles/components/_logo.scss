@@ -1,0 +1,15 @@
+@use "./../general/index" as general;
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: general.$gap-unit-small;
+  font-size: general.$fs-action-small;
+  text-transform: uppercase;
+  border-radius: general.$border-radius-small;
+  padding: general.$gap-unit-small general.$gap-unit-large;
+
+  &__img {
+    display: inline-block;
+  }
+}

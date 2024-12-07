@@ -1,0 +1,33 @@
+@use "./../general/index" as general;
+
+.countdown {
+    text-align: center;
+    padding-block: general.$gap-unit-extra-large;
+
+  &-bg {
+    background-image: url(images/bg-forest.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-block: general.$gap-unit-extra-large;
+  }
+
+  &__content {
+    max-width: 426px;
+    padding-block: general.$gap-unit-extra-large;
+    margin: 0 auto;
+  }
+
+  &__title {
+    color: general.$clr-white;
+    margin-bottom: general.$gap-unit-large;
+  }
+
+  &__btn {
+    margin-bottom: general.$gap-unit-large;
+  }
+
+  &__timer {
+    margin-top: general.$gap-unit-small;
+  }
+}

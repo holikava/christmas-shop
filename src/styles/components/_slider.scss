@@ -1,0 +1,85 @@
+@use "./../general/index" as general;
+
+.slider {
+  position: relative;
+
+  &__list {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: general.$gap-unit-large;
+    margin-bottom: general.$gap-unit-large;
+    transition: general.$transition;
+  }
+
+  &__slide {
+    display: flex;
+    align-items: center;
+    gap: general.$gap-unit-large;
+    flex-shrink: 0;
+    transition: general.$transition;
+  }
+
+  &__item-text {
+    font-family: general.$ff-title;
+    font-size: general.$fs-slider-text;
+    font-weight: general.$fw-bold;
+    text-transform: uppercase;
+    color: general.$clr-white;
+  }
+
+  &__item-img {
+    flex-shrink: 0;
+
+    & > img {
+      width: 200px;
+      height: 200px;
+      border-radius: general.$border-radius-large;
+    }
+  }
+
+  &__btns {
+    text-align: right;
+    height: 56px;
+
+    & > button {
+      width: 54px;
+      height: 54px;
+      border: 1px solid general.$clr-white;
+      border-radius: general.$border-radius-large;
+
+      & svg {
+        stroke: general.$clr-white;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__btn:first-child {
+    transform: rotate(180deg);
+    margin-right: general.$gap-unit-large;
+  }
+}
+
+@include general.break(general.$breakpoint-desktop) {
+  .slider {
+    &__btns > * {
+      transition: general.$transition;
+    }
+
+    &__btn:hover {
+      background-color: general.$clr-white;
+
+      & > svg {
+        stroke: general.$clr-primary;
+      }
+    }
+  }
+}
+
+.slider-btn_disable {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.4;
+}

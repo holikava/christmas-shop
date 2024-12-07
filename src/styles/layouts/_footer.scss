@@ -1,0 +1,46 @@
+@use './../general/index' as general;
+
+.footer {
+    padding-block: general.$gap-unit-extra-large;
+
+    &__contacts {
+        margin-bottom: general.$gap-unit-extra-large;
+    }
+
+    &__social-links {
+        margin-bottom: general.$gap-unit-medium;
+    }
+
+    &__info {
+        text-align: center;
+    }
+
+    &__copyright,
+    &__caption {
+        display: block;
+        text-align: center;
+    }
+
+    &__copyright {
+        margin-bottom: general.$gap-unit-medium;
+    }
+
+    &__caption {
+        color: general.$clr-dark;
+    }
+}
+
+
+@include general.break(general.$breakpoint-desktop) {
+    .footer {
+
+        &__caption {
+            transition: general.$transition;
+
+            &:hover {
+
+                color: general.$clr-primary;
+            }
+        }
+    }
+}

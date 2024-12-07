@@ -1,0 +1,49 @@
+@use './../general/index' as general;
+
+.gifts-gallery {
+    margin-bottom: general.$gap-unit-extra-large;
+
+    &__category-list {
+        display: flex;
+        justify-content: center;
+        margin-bottom: general.$gap-unit-large;
+    }
+
+    &__category-btn {
+        font-size: general.$fs-action-small;
+        color: general.$clr-white;
+        border-radius: general.$border-radius-small;
+        padding: general.$gap-unit-medium general.$gap-unit-small;
+
+        &_active {
+            background-color: general.$clr-white-opacity-large;
+        }
+    }
+}
+
+@include general.break(general.$breakpoint-tablet) {
+    .gifts-gallery {
+
+        &__category-list {
+            gap: general.$gap-unit-small;
+        }
+
+        &__category-btn {
+            padding: general.$gap-unit-medium general.$gap-unit-large;
+        }
+    }
+}
+
+@include general.break(general.$breakpoint-desktop) {
+
+    .gifts-gallery {
+
+        &__category-btn {
+            transition: general.$transition;
+
+            &:hover {
+                background-color: general.$clr-white-opacity-large;
+            }
+        }
+    }
+}

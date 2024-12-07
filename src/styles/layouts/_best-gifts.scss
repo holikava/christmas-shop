@@ -1,0 +1,18 @@
+@use './../general/index' as general;
+
+.best-gifts {
+    padding-block: general.$gap-unit-extra-large;
+
+    &__caption {
+        display: block;
+        text-align: center;
+        margin-bottom: general.$gap-unit-medium;
+    }
+
+    &__title {
+        text-align: center;
+        color: general.$clr-white;
+        margin-bottom: general.$gap-unit-large;
+    }
+
+}

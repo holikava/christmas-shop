@@ -1,0 +1,86 @@
+@use "./../general/index" as general;
+
+.modal {
+  display: flex;
+  background-color: general.$clr-dark-opacity;
+  transition: general.$transition ;
+
+  &__content {
+    position: relative;
+    max-width: 364px;
+    height: max-content;
+    margin: auto;
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: general.$gap-unit-medium;
+    right: general.$gap-unit-medium;
+    z-index: 300;
+
+    & > svg {
+      stroke: general.$clr-dark;
+    }
+  }
+
+  &__img {
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+
+    & > img {
+      position: absolute;
+      top: -2rem;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &__info {
+    height: inherit;
+  }
+
+  &__title {
+    margin-bottom: general.$gap-unit-small;
+  }
+
+  &__desc {
+    margin-bottom: general.$gap-unit-large;
+  }
+
+  &__stats {
+    &-title {
+      font-size: general.$fs-action-small;
+      margin-bottom: general.$gap-unit-small;
+    }
+    &-item {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+@include general.break(general.$breakpoint-tablet) {
+  .modal {
+    &__content {
+      max-width: 400px;
+    }
+
+    &__btn-close {
+      transition: general.$transition;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.show-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  z-index: 200;
+}

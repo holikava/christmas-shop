@@ -1,0 +1,46 @@
+@use "./../general/index" as general;
+
+.timer {
+  display: flex;
+  width: max-content;
+  color: general.$clr-white;
+  background-color: general.$clr-white-opacity-mid;
+  border-radius: general.$border-radius-large;
+  padding: general.$gap-unit-medium;
+  padding-top: general.$gap-unit-small;
+  margin: 0 auto;
+
+  &__part > span {
+    display: block;
+  }
+
+  &__label {
+    font-family: general.$ff-title;
+    font-size: general.$fs-action-small;
+    letter-spacing: general.$letter-space-small;
+    line-height: general.$line-height-middle;
+    text-transform: uppercase;
+  }
+
+  &__part {
+    position: relative;
+    min-width: 80px;
+  }
+
+  &__part::before {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    content: "";
+    background-color: general.$clr-white-opacity-mid;
+    border-radius: general.$border-radius-small;
+  }
+
+  &__part:last-child::before {
+    display: none;
+  }
+}

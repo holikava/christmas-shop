@@ -1,0 +1,10 @@
+$breakpoint-desktop: 1440px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 360px;
+
+
+@mixin break($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

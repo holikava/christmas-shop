@@ -1,0 +1,28 @@
+@use './../general/index' as general;
+
+.to-top-btn {
+    display: none;
+    width: 56px;
+    height: 56px;
+    position: fixed;
+    right: general.$gap-unit-small;
+    bottom: general.$gap-unit-small;
+    border-radius: 50%;
+    border: 1px solid general.$clr-primary;
+    background-color: general.$clr-white;
+
+    & > svg {
+        stroke: general.$clr-primary;
+        margin: auto;
+    }
+}
+
+.show-link {
+    display: flex;
+}
+
+@include general.break(general.$breakpoint-tablet + 1px) {
+    .to-top-btn {
+        display: none;
+    }
+}

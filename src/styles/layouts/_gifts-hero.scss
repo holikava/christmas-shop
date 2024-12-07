@@ -1,0 +1,19 @@
+@use './../general/index' as general;
+
+.gifts-hero {
+    color: general.$clr-white;
+
+    &-bg {
+        background-image: url(images/bg-garland.png);
+        background-position: center top;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &__content {
+        max-width: 426px;
+        text-align: center;
+        padding: general.$gap-unit-extra-large 0 general.$gap-unit-large;
+        margin: 0 auto;
+    }
+}

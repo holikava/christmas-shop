@@ -1,0 +1,28 @@
+@use './fonts/fonts';
+
+@use './styles/general/index';
+
+@use './styles/basic';
+
+@use './styles/components/logo';
+@use './styles/components/nav-list';
+@use './styles/components/buttons';
+@use './styles/components/slider';
+@use './styles/components/timer';
+@use './styles/components/contacts';
+@use './styles/components/social-links';
+@use './styles/components/gifts-card';
+@use './styles/components/burger-menu-icon';
+@use './styles/components/to-top-btn';
+@use './styles/components/modal';
+
+@use './styles/layouts/header';
+@use './styles/layouts/hero';
+@use './styles/layouts/about';
+@use './styles/layouts/words';
+@use './styles/layouts/best-gifts';
+@use './styles/layouts/countdown';
+@use './styles/layouts/footer';
+
+@use './styles/layouts/gifts-hero';
+@use './styles/layouts/gifts-gallery';

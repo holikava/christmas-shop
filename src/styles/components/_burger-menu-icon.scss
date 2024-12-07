@@ -1,0 +1,35 @@
+@use "./../general/index" as general;
+
+.burger-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: general.$gap-unit-small;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transition: general.$transition;
+
+  &__elem {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background-color: general.$clr-dark;
+    border-radius: general.$border-radius-small;
+    transition: general.$transition;
+  }
+
+  &.close {
+
+    & > span:first-child {
+      position: absolute;
+      transform: rotate(45deg);
+    }
+
+    & > span:last-child {
+      position: absolute;
+      transform: rotate(-45deg);
+    }
+  }
+}

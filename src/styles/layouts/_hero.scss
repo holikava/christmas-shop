@@ -1,0 +1,27 @@
+@use "./../general/index" as general;
+
+.hero {
+  padding-block: general.$gap-unit-extra-large;
+
+    &-bg {
+      background-image: url(images/bg-ball.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+  &__content {
+    max-width: 429px;
+    text-align: center;
+    padding-block: general.$gap-unit-extra-large;
+    margin: 0 auto;
+
+    & > * + * {
+      margin-top: general.$gap-unit-medium;
+    }
+  }
+
+  &__title {
+    color: general.$clr-white;
+  }
+}

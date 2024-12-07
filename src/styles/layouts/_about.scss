@@ -1,0 +1,77 @@
+@use "./../general/index" as general;
+
+.about {
+  max-width: 630px;
+  background-color: general.$clr-white;
+  border-radius: general.$border-radius-large;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-block: general.$gap-unit-extra-large;
+  }
+
+  &__text {
+    margin: general.$gap-unit-extra-large general.$gap-unit-large;
+
+    & > * + * {
+      margin-top: general.$gap-unit-large;
+    }
+  }
+
+  &__caption {
+    color: general.$clr-primary;
+  }
+
+  &__img {
+    height: 528px;
+    border-radius: general.$border-radius-large;
+    overflow: hidden;
+
+    & > img {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: initial;
+      height: inherit;
+    }
+  }
+}
+
+@include general.break(general.$breakpoint-tablet) {
+    .about {
+      max-width: 1276px;
+
+        &__content {
+            align-items: center;
+            flex-wrap: nowrap;
+
+            & > * {
+                flex: 1;
+            }
+        }
+
+        &__text {
+            margin: general.$gap-unit-extra-large;
+        }
+    }
+}
+
+@include general.break(general.$breakpoint-desktop) {
+  .about {
+    &__content {
+      align-items: center;
+
+      & > * {
+        flex: 1;
+      }
+    }
+
+    &__text {
+      max-width: 426px;
+
+    }
+  }
+}

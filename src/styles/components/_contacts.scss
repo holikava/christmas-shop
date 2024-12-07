@@ -1,0 +1,53 @@
+@use "./../general/index" as general;
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: general.$gap-unit-medium;
+
+  & > * {
+    flex: 1 0 100%;
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__card {
+    text-align: center;
+    background-color: general.$clr-content-bg;
+    border-radius: general.$border-radius-large;
+    padding: general.$gap-unit-large;
+
+    & > span {
+      display: block;
+    }
+
+    & > * + * {
+      margin-top: general.$gap-unit-medium;
+    }
+  }
+
+  &__img > img {
+    margin: 0 auto;
+  }
+}
+
+@include general.break(general.$breakpoint-desktop) {
+  .contacts {
+    & > * {
+      flex: 1;
+      flex-shrink: 0;
+    }
+
+    &__card {
+      transition: general.$transition;
+      cursor: pointer;
+
+      &:hover {
+        color: general.$clr-primary;
+      }
+    }
+  }
+}

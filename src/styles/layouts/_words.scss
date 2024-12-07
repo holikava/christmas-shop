@@ -1,0 +1,16 @@
+@use './../general/index' as general;
+
+.words {
+    text-align: center;
+    padding-block: general.$gap-unit-extra-large;
+
+    &__caption {
+        margin-bottom: general.$gap-unit-medium;
+    }
+
+    &__title {
+        color: general.$clr-white;
+        margin-bottom: general.$gap-unit-large;
+    }
+
+}

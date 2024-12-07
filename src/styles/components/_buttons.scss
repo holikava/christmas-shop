@@ -1,0 +1,21 @@
+@use './../general/index' as general;
+
+.btn {
+    display: inline-block;
+    font-size: general.$fs-action-small;
+    color: general.$clr-white;
+    background-color: general.$clr-dark;
+    border-radius: general.$border-radius-large;
+    padding: 20px 32px;
+}
+
+@include general.break(general.$breakpoint-desktop) {
+    .btn {
+        transition: general.$transition;
+
+        &:hover {
+            color: general.$clr-dark;
+            background-color: general.$clr-white;
+        }
+    }
+}

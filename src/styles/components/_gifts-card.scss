@@ -1,0 +1,49 @@
+@use "./../general/index" as general;
+
+.gifts-card {
+  max-width: 310px;
+  background-color: general.$clr-content-bg;
+  border-radius: general.$border-radius-large;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    height: 112px;
+    background-color: general.$clr-white;
+    border-radius: general.$border-radius-large;
+    padding: 20px;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-size: general.$fs-action-small;
+    text-transform: uppercase;
+    margin-bottom: general.$gap-unit-small;
+  }
+
+  &__tag[tag~="for-work"] {
+    color: general.$clr-tag-first;
+  }
+
+  &__tag[tag~="for-health"] {
+    color: general.$clr-tag-third;
+  }
+
+  &__tag[tag~="for-harmony"] {
+    color: general.$clr-tag-second;
+  }
+}
+
+@include general.break(general.$breakpoint-desktop) {
+  .gifts-card {
+    cursor: pointer;
+
+    &:hover h2 {
+      color: general.$clr-primary;
+    }
+
+    &__title {
+      transition: general.$transition;
+    }
+  }
+}
