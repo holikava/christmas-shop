@@ -1,27 +1,31 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .hero {
-  padding-block: general.$gap-unit-extra-large;
+  padding-block: i.$gap-unit-extra-large;
 
-    &-bg {
-      background-image: url(images/bg-ball.png);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+  &-bg {
+    background-image: url(images/bg-ball.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-  &__content {
-    max-width: 429px;
+  &__content-wrapper {
+    max-width: 420px;
     text-align: center;
-    padding-block: general.$gap-unit-extra-large;
+    padding-block: i.$gap-unit-extra-large;
     margin: 0 auto;
 
     & > * + * {
-      margin-top: general.$gap-unit-medium;
+      margin-top: i.$gap-unit-medium;
     }
   }
 
   &__title {
-    color: general.$clr-white;
+    @include i.titleText(i.$fs-h1, i.$clr-white);
+  }
+
+  &__caption {
+    @include i.captionText(i.$clr-white);
   }
 }

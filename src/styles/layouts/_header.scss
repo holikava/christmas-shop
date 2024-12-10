@@ -1,34 +1,54 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .header {
-  padding-block: general.$gap-unit-medium;
-  overflow: hidden;
+  &__content-wrapper {
+    padding: i.$gap-unit-medium 0;
+  }
 
-    &__content {
-      position: relative;
-    }
-
-  &__icons {
+  &__heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 20;
+  }
+
+  &__nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: i.$clr-white;
+    transition: i.$transition;
+    transform: translate(300%);
+    z-index: 10;
   }
 }
 
-@include general.break(general.$breakpoint-tablet + 1px) {
+@include i.break(i.$breakpoint-tablet + 1px) {
   .header {
-    &__content {
+    &__content-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    &__links {
-      display: block;
+    &__nav-links {
+      position: static;
+      width: auto;
+      min-height: auto;
+      transform: translate(0);
     }
 
     &__burger-menu {
-      display: none;
+      visibility: hidden;
+      width: 0;
+      height: 0;
     }
   }
+}
+
+.show-mobile-nav {
+  transform: translate(0);
 }

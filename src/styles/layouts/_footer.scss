@@ -1,45 +1,39 @@
-@use './../general/index' as general;
+@use './../general/index' as i;
 
 .footer {
-    padding-block: general.$gap-unit-extra-large;
+    padding-block: i.$gap-unit-extra-large;
 
     &__contacts {
-        margin-bottom: general.$gap-unit-extra-large;
+        margin-bottom: i.$gap-unit-extra-large;
     }
 
     &__social-links {
-        margin-bottom: general.$gap-unit-medium;
+        margin-bottom: i.$gap-unit-medium;
     }
 
     &__info {
         text-align: center;
     }
 
-    &__copyright,
-    &__caption {
-        display: block;
-        text-align: center;
-    }
-
     &__copyright {
-        margin-bottom: general.$gap-unit-medium;
+        display: block;
+        margin-bottom: i.$gap-unit-medium;
     }
 
     &__caption {
-        color: general.$clr-dark;
+        @include i.captionText(i.$clr-dark);
     }
 }
 
 
-@include general.break(general.$breakpoint-desktop) {
+@include i.break(i.$breakpoint-desktop) {
     .footer {
 
         &__caption {
-            transition: general.$transition;
+            transition: i.$transition;
 
             &:hover {
-
-                color: general.$clr-primary;
+                color: i.$clr-primary;
             }
         }
     }

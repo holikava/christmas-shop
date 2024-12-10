@@ -1,7 +1,7 @@
-@use './../general/index' as general;
+@use './../general/index' as i;
 
 .gifts-hero {
-    color: general.$clr-white;
+    color: i.$clr-white;
 
     &-bg {
         background-image: url(images/bg-garland.png);
@@ -10,10 +10,15 @@
         background-repeat: no-repeat;
     }
 
-    &__content {
+    &__content-wrapper {
         max-width: 426px;
         text-align: center;
-        padding: general.$gap-unit-extra-large 0 general.$gap-unit-large;
+        padding: i.$gap-unit-extra-large 0 i.$gap-unit-large;
         margin: 0 auto;
+    }
+
+    &__title {
+        @include i.titleText(i.$fs-h1, i.$clr-white);
+        margin-bottom: i.$gap-unit-medium;
     }
 }

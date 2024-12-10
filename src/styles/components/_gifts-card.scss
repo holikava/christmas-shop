@@ -1,49 +1,61 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .gifts-card {
   max-width: 310px;
-  background-color: general.$clr-content-bg;
-  border-radius: general.$border-radius-large;
+  background-color: i.$clr-content-bg;
+  border-radius: i.$border-radius-large;
 
   &__info {
     display: flex;
     flex-direction: column;
     height: 112px;
-    background-color: general.$clr-white;
-    border-radius: general.$border-radius-large;
+    text-align: left;
+    background-color: i.$clr-white;
+    border-radius: i.$border-radius-large;
     padding: 20px;
   }
 
   &__tag {
+    @include i.actionText(i.$fs-action-small, i.$clr-primary);
     display: inline-block;
-    font-size: general.$fs-action-small;
+    font-size: i.$fs-action-small;
     text-transform: uppercase;
-    margin-bottom: general.$gap-unit-small;
+    margin-bottom: i.$gap-unit-small;
   }
 
   &__tag[tag~="for-work"] {
-    color: general.$clr-tag-first;
+    color: i.$clr-tag-first;
   }
 
   &__tag[tag~="for-health"] {
-    color: general.$clr-tag-third;
+    color: i.$clr-tag-third;
   }
 
   &__tag[tag~="for-harmony"] {
-    color: general.$clr-tag-second;
+    color: i.$clr-tag-second;
+  }
+
+  &__title {
+    @include i.titleText(i.$fs-h3, i.$clr-dark);
+    letter-spacing: i.$letter-space-caption;
   }
 }
 
-@include general.break(general.$breakpoint-desktop) {
+@include i.break(i.$breakpoint-desktop) {
   .gifts-card {
     cursor: pointer;
 
     &:hover h2 {
-      color: general.$clr-primary;
+      color: i.$clr-primary;
     }
 
-    &__title {
-      transition: general.$transition;
+    &:hover > &__img {
+      background-color: i.$clr-primary-opacity;
+    }
+
+    &__title,
+    &__img {
+      transition: i.$transition;
     }
   }
 }

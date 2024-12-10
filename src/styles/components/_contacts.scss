@@ -1,32 +1,38 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .contacts {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: general.$gap-unit-medium;
-
-  & > * {
-    flex: 1 0 100%;
-  }
+  gap: i.$gap-unit-medium;
 
   &__link {
-    display: block;
+    flex: 1 0 100%;
   }
 
   &__card {
     text-align: center;
-    background-color: general.$clr-content-bg;
-    border-radius: general.$border-radius-large;
-    padding: general.$gap-unit-large;
+    background-color: i.$clr-content-bg;
+    border-radius: i.$border-radius-large;
+    box-shadow: 0 0 10px i.$clr-dark-opacity;
+    padding: i.$gap-unit-large;
 
     & > span {
       display: block;
     }
 
     & > * + * {
-      margin-top: general.$gap-unit-medium;
+      margin-top: i.$gap-unit-medium;
     }
+  }
+
+  &__title {
+    @include i.titleText(i.$fs-h3, i.$clr-dark);
+  }
+
+  &__subtitle {
+    @include i.titleText(i.$fs-h4, i.$clr-dark);
   }
 
   &__img > img {
@@ -34,19 +40,25 @@
   }
 }
 
-@include general.break(general.$breakpoint-desktop) {
+@include i.break(i.$breakpoint-tablet + 200px) {
   .contacts {
-    & > * {
-      flex: 1;
-      flex-shrink: 0;
-    }
 
-    &__card {
-      transition: general.$transition;
+    &__link {
+      flex: 1;
+    }
+  }
+}
+
+
+@include i.break(i.$breakpoint-desktop) {
+  .contacts {
+
+    &__link > * {
+      transition: i.$transition;
       cursor: pointer;
 
       &:hover {
-        color: general.$clr-primary;
+        background-color: i.$clr-primary-opacity;
       }
     }
   }

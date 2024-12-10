@@ -1,32 +1,32 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
-.social-links {
+.social-list {
   display: flex;
   justify-content: center;
-  gap: general.$gap-unit-medium;
+  gap: i.$gap-unit-medium;
 
-  &-link {
+  &__link {
     display: flex;
     width: 40px;
     height: 40px;
-    border-radius: general.$border-radius-small;
+    border-radius: i.$border-radius-small;
 
     & > svg {
-      stroke: general.$clr-dark;
+      stroke: i.$clr-dark;
       margin: auto;
     }
   }
 }
 
-@include general.break(general.$breakpoint-desktop) {
-  .social-links {
-    &-link {
+@include i.break(i.$breakpoint-desktop) {
+  .social-list {
+    &__link {
       & > svg {
-        transition: general.$transition;
+        transition: i.$transition;
       }
 
       &:hover > svg {
-        stroke: general.$clr-primary;
+        stroke: i.$clr-primary;
       }
     }
   }

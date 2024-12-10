@@ -1,25 +1,25 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .timer {
   display: flex;
   width: max-content;
-  color: general.$clr-white;
-  background-color: general.$clr-white-opacity-mid;
-  border-radius: general.$border-radius-large;
-  padding: general.$gap-unit-medium;
-  padding-top: general.$gap-unit-small;
+  color: i.$clr-white;
+  background-color: i.$clr-white-opacity-mid;
+  border-radius: i.$border-radius-large;
+  padding: i.$gap-unit-medium;
+  padding-top: i.$gap-unit-small;
   margin: 0 auto;
 
   &__part > span {
     display: block;
   }
 
+  &__number {
+    @include i.titleText(i.$fs-h2, i.$clr-white);
+  }
+
   &__label {
-    font-family: general.$ff-title;
-    font-size: general.$fs-action-small;
-    letter-spacing: general.$letter-space-small;
-    line-height: general.$line-height-middle;
-    text-transform: uppercase;
+    @include i.actionText(i.$fs-action-small, i.$clr-white);
   }
 
   &__part {
@@ -36,8 +36,8 @@
     width: 1px;
     height: 20px;
     content: "";
-    background-color: general.$clr-white-opacity-mid;
-    border-radius: general.$border-radius-small;
+    background-color: i.$clr-white-opacity-mid;
+    border-radius: i.$border-radius-small;
   }
 
   &__part:last-child::before {

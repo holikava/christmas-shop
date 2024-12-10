@@ -1,92 +1,33 @@
-@use "./general/index" as general;
+@use "./general/index" as i;
 
 body {
-  font-family: general.$ff-text;
-  font-size: general.$fs-text;
-  line-height: general.$line-height-text;
-  color: general.$clr-dark;
-  background-color: general.$clr-white;
+  font-family: i.$ff-text;
+  font-size: i.$fs-text;
+  line-height: i.$line-height-text;
+  color: i.$clr-dark;
+  background-color: i.$clr-white;
   max-width: 1440px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
-.main-bg {
-  background-color: general.$clr-primary;
-  border-radius: general.$border-radius-large;
+.main {
+  background-color: i.$clr-primary;
+  border-radius: i.$border-radius-large;
   overflow-x: hidden;
 }
 
 .main-bg-img {
   background-image: url(images/bg-snow.png);
-  background-position: center -40px;
+  background-position: center;
   background-size: contain;
   background-repeat: repeat-y;
 }
 
-.wrapper {
+.container {
   width: 90%;
   max-width: 1276px;
   margin: 0 auto;
-}
-
-.active-link {
-  color: general.$clr-primary;
-  background-color: general.$clr-primary-opacity;
-}
-
-.caption {
-  display: inline-block;
-  font-size: general.$fs-action-large;
-  color: general.$clr-white;
-}
-
-.caption-text {
-  font-family: general.$ff-cursive;
-  line-height: general.$line-height-small;
-  letter-spacing: general.$letter-space-small;
-}
-
-.title-text-h1 {
-  font-family: general.$ff-title;
-  font-size: general.$fs-h1;
-  font-weight: general.$fw-bold;
-  line-height: general.$line-height-h1;
-  letter-spacing: general.$letter-space-h1;
-  text-transform: uppercase;
-}
-
-.title-text-h2 {
-  font-family: general.$ff-title;
-  font-size: general.$fs-h2;
-  font-weight: general.$fw-bold;
-  line-height: general.$line-height-h2;
-  letter-spacing: general.$letter-space-h2;
-  text-transform: uppercase;
-}
-
-.title-text-h3 {
-  font-family: general.$ff-title;
-  font-size: general.$fs-h3;
-  font-weight: general.$fw-bold;
-  line-height: general.$line-height-h2;
-  letter-spacing: general.$letter-space-h3;
-  text-transform: uppercase;
-}
-
-.action-text {
-  font-weight: general.$fw-bold;
-  letter-spacing: general.$letter-space-small;
-  line-height: general.$line-height-middle;
-  text-transform: uppercase;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 310px);
-  grid-template-rows: auto;
-  justify-items: center;
-  place-content: center;
-  gap: 12px;
 }
 
 .disable {
@@ -98,29 +39,27 @@ body {
   overflow: hidden;
 }
 
-@include general.break(general.$breakpoint-mobile) {
+.hidden {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+@include i.break(i.$breakpoint-mobile) {
   .wrapper {
     min-width: 364px;
   }
 }
 
-@include general.break(general.$breakpoint-tablet) {
+@include i.break(i.$breakpoint-tablet) {
   .wrapper {
     min-width: 752px;
   }
-
-  .best-gift-grid {
-    grid-template-columns: repeat(2, 310px);
-  }
 }
 
-@include general.break(general.$breakpoint-desktop) {
+@include i.break(i.$breakpoint-desktop) {
   button,
   a {
     cursor: pointer;
-  }
-
-  .best-gift-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
 }

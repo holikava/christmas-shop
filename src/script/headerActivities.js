@@ -1,6 +1,6 @@
 const burgerMenuIcon = document.getElementById("burger-menu-icon");
 const navList = document.getElementById("nav-list");
-const headerLinks = document.querySelectorAll(".nav-list__link-wrapper");
+const headerLinks = document.querySelectorAll(".nav-list__wrapper");
 
 burgerMenuIcon.addEventListener("click", () => {
   burgerMenuIcon.classList.toggle("close");

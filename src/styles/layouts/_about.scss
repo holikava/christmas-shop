@@ -1,68 +1,56 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .about {
   max-width: 630px;
-  background-color: general.$clr-white;
-  border-radius: general.$border-radius-large;
+  background-color: i.$clr-white;
+  border-radius: i.$border-radius-large;
 
-  &__content {
+  &__content-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: stretch;
     flex-wrap: wrap;
-    margin-block: general.$gap-unit-extra-large;
+    margin-block: i.$gap-unit-extra-large;
   }
 
   &__text {
-    margin: general.$gap-unit-extra-large general.$gap-unit-large;
+    margin: i.$gap-unit-extra-large i.$gap-unit-large;
 
     & > * + * {
-      margin-top: general.$gap-unit-large;
+      margin-top: i.$gap-unit-large;
     }
   }
 
   &__caption {
-    color: general.$clr-primary;
+    @include i.captionText(i.$clr-primary);
+  }
+
+  &__title {
+    @include i.titleText(i.$fs-h2, inherit);
   }
 
   &__img {
     height: 528px;
-    border-radius: general.$border-radius-large;
+    border-radius: i.$border-radius-large;
     overflow: hidden;
 
     & > img {
       position: relative;
       left: 50%;
       transform: translateX(-50%);
-      max-width: initial;
+      max-width: inherit;
       height: inherit;
     }
   }
 }
 
-@include general.break(general.$breakpoint-tablet) {
-    .about {
-      max-width: 1276px;
-
-        &__content {
-            align-items: center;
-            flex-wrap: nowrap;
-
-            & > * {
-                flex: 1;
-            }
-        }
-
-        &__text {
-            margin: general.$gap-unit-extra-large;
-        }
-    }
-}
-
-@include general.break(general.$breakpoint-desktop) {
+@include i.break(i.$breakpoint-tablet) {
   .about {
-    &__content {
+    max-width: inherit;
+
+    &__content-wrapper {
+      justify-content: space-between;
       align-items: center;
+      flex-wrap: nowrap;
+      gap: i.$gap-unit-large;
 
       & > * {
         flex: 1;
@@ -70,8 +58,18 @@
     }
 
     &__text {
-      max-width: 426px;
+      & > * {
+        max-width: 426px;
+      }
+    }
+  }
+}
 
+@include i.break(i.$breakpoint-desktop - 300px) {
+  .about {
+    &__text {
+      margin: 0;
+      margin-left: i.$gap-unit-extra-large;
     }
   }
 }

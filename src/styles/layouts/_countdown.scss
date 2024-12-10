@@ -1,33 +1,37 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .countdown {
     text-align: center;
-    padding-block: general.$gap-unit-extra-large;
+    padding-block: i.$gap-unit-extra-large;
 
   &-bg {
     background-image: url(images/bg-forest.png);
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-block: general.$gap-unit-extra-large;
+    padding-block: i.$gap-unit-extra-large;
   }
 
-  &__content {
+  &__content-wrapper {
     max-width: 426px;
-    padding-block: general.$gap-unit-extra-large;
+    padding-block: i.$gap-unit-extra-large;
     margin: 0 auto;
   }
 
   &__title {
-    color: general.$clr-white;
-    margin-bottom: general.$gap-unit-large;
+    @include i.titleText(i.$fs-h2, i.$clr-white);
+    margin-bottom: i.$gap-unit-large;
+  }
+
+  &__caption {
+    @include i.captionText(i.$clr-white);
   }
 
   &__btn {
-    margin-bottom: general.$gap-unit-large;
+    margin-bottom: i.$gap-unit-large;
   }
 
   &__timer {
-    margin-top: general.$gap-unit-small;
+    margin-top: i.$gap-unit-small;
   }
 }

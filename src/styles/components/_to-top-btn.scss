@@ -1,28 +1,29 @@
-@use './../general/index' as general;
+@use './../general/index' as i;
 
 .to-top-btn {
-    display: none;
+    visibility: hidden;
+    display: flex;
     width: 56px;
     height: 56px;
     position: fixed;
-    right: general.$gap-unit-small;
-    bottom: general.$gap-unit-small;
+    right: i.$gap-unit-small;
+    bottom: i.$gap-unit-small;
     border-radius: 50%;
-    border: 1px solid general.$clr-primary;
-    background-color: general.$clr-white;
+    border: 1px solid i.$clr-primary;
+    background-color: i.$clr-white;
 
     & > svg {
-        stroke: general.$clr-primary;
+        stroke: i.$clr-primary;
         margin: auto;
+    }
+
+    &.show-btn {
+        visibility: visible;
     }
 }
 
-.show-link {
-    display: flex;
-}
-
-@include general.break(general.$breakpoint-tablet + 1px) {
-    .to-top-btn {
-        display: none;
+@include i.break(i.$breakpoint-tablet + 1px) {
+    .to-top-btn.show-btn {
+        visibility: hidden;
     }
 }

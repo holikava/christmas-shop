@@ -1,56 +1,46 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
-.nav-list {
-  position: absolute;
-  width: 100%;
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: general.$gap-unit-small;
-  transition: general.$transition;
-  transform: translate(200%);
-
-  &__link {
-    font-family: general.$ff-title;
-    font-size: general.$fs-h2;
-    font-weight: general.$fw-bold;
-    line-height: general.$line-height-h2;
-    letter-spacing: general.$letter-space-h2;
-    border-radius: general.$border-radius-small;
-    text-transform: uppercase;
-    padding: general.$gap-unit-medium general.$gap-unit-large;
-  }
-}
-
-@include general.break(general.$breakpoint-tablet + 1px) {
   .nav-list {
-    flex-direction: row;
-    position: relative;
-    width: auto;
-    height: auto;
-    transform: translate(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: i.$gap-unit-small;
+    transition: i.$transition;
 
     &__link {
-      font-size: general.$fs-action-small;
-      text-transform: uppercase;
-      border-radius: general.$border-radius-small;
-      padding: general.$gap-unit-small general.$gap-unit-large;
-      transition: general.$transition;
+      @include i.actionText(i.$fs-action-large, i.$clr-dark);
+      border-radius: i.$border-radius-small;
+      padding: i.$gap-unit-medium i.$gap-unit-large;
 
-      &:hover {
-        color: general.$clr-primary;
-        background-color: general.$clr-primary-opacity;
+      &.disabled-link {
+        pointer-events: none;
+        cursor: default;
+      }
+
+      &.active-link {
+        color: i.$clr-primary;
+        background-color: i.$clr-primary-opacity;
       }
     }
   }
-}
 
-.show-mobile-nav {
-  transform: translate(0);
-  position: fixed;
-  left: 0;
-  top: 60px;
-  background-color: general.$clr-white;
+
+@include i.break(i.$breakpoint-tablet + 1px) {
+  .nav-list {
+    flex-direction: row;
+    position: static;
+    width: auto;
+    height: auto;
+
+    &__link {
+      font-size: i.$fs-action-small;
+      transition: i.$transition;
+
+      &:hover {
+        color: i.$clr-primary;
+        background-color: i.$clr-primary-opacity;
+      }
+    }
+  }
 }

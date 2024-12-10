@@ -15,14 +15,38 @@ $fs-slider-text: 5rem;
 $fw-regular: 400;
 $fw-bold: 600;
 
-$letter-space-h1: 0.18em;
-$letter-space-h2: 0.16em;
-$letter-space-h3: 0.08em;
-$letter-space-small: 0.05em;
-$letter-space-slider-text: 0.16em;
+$letter-space-title: 0.16em;
+$letter-space-text: 0.1em;
+$letter-space-caption: 0.05em;
 
-$line-height-text: 148%;
-$line-height-h1: 150%;
-$line-height-h2: 152%;
-$line-height-middle: 130%;
-$line-height-small: 100%;
+$line-height-title: 130%;
+$line-height-text: 150%;
+$line-height-caption: 100%;
+
+
+@mixin actionText($font-size, $color) {
+    font-size: $font-size;
+    color: $color;
+    font-family: $ff-title;
+    line-height: $line-height-title;
+    letter-spacing: $letter-space-caption;
+    text-transform: uppercase;
+}
+
+@mixin titleText($font-size, $color) {
+    font-size: $font-size;
+    color: $color;
+    font-family: $ff-title;
+    line-height: $line-height-title;
+    letter-spacing: $letter-space-title;
+    text-transform: uppercase;
+}
+
+@mixin captionText($color) {
+    color: $color;
+    display: inline-block;
+    font-size: $fs-caption;
+    font-family: $ff-cursive;
+    line-height: $line-height-caption;
+    letter-spacing: $letter-space-caption;
+}

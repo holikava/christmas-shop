@@ -1,4 +1,4 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .slider {
   position: relative;
@@ -8,25 +8,21 @@
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: general.$gap-unit-large;
-    margin-bottom: general.$gap-unit-large;
-    transition: general.$transition;
+    gap: i.$gap-unit-large;
+    margin-bottom: i.$gap-unit-large;
+    transition: i.$transition;
   }
 
   &__slide {
     display: flex;
     align-items: center;
-    gap: general.$gap-unit-large;
+    gap: i.$gap-unit-large;
     flex-shrink: 0;
-    transition: general.$transition;
   }
 
   &__item-text {
-    font-family: general.$ff-title;
-    font-size: general.$fs-slider-text;
-    font-weight: general.$fw-bold;
-    text-transform: uppercase;
-    color: general.$clr-white;
+    @include i.titleText(i.$fs-slider-text, i.$clr-white);
+    letter-spacing: i.$letter-space-caption;
   }
 
   &__item-img {
@@ -35,7 +31,7 @@
     & > img {
       width: 200px;
       height: 200px;
-      border-radius: general.$border-radius-large;
+      border-radius: i.$border-radius-large;
     }
   }
 
@@ -46,11 +42,11 @@
     & > button {
       width: 54px;
       height: 54px;
-      border: 1px solid general.$clr-white;
-      border-radius: general.$border-radius-large;
+      border: 1px solid i.$clr-white;
+      border-radius: i.$border-radius-large;
 
       & svg {
-        stroke: general.$clr-white;
+        stroke: i.$clr-white;
         margin: 0 auto;
       }
     }
@@ -58,21 +54,21 @@
 
   &__btn:first-child {
     transform: rotate(180deg);
-    margin-right: general.$gap-unit-large;
+    margin-right: i.$gap-unit-large;
   }
 }
 
-@include general.break(general.$breakpoint-desktop) {
+@include i.break(i.$breakpoint-desktop) {
   .slider {
     &__btns > * {
-      transition: general.$transition;
+      transition: i.$transition;
     }
 
     &__btn:hover {
-      background-color: general.$clr-white;
+      background-color: i.$clr-white;
 
       & > svg {
-        stroke: general.$clr-primary;
+        stroke: i.$clr-primary;
       }
     }
   }

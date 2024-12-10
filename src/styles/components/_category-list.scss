@@ -1,0 +1,44 @@
+@use "./../general/index" as i;
+
+.category-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: i.$gap-unit-large;
+
+  &__btn {
+    @include i.actionText(i.$fs-action-small, i.$clr-white);
+    border-radius: i.$border-radius-small;
+    padding: i.$gap-unit-medium i.$gap-unit-small;
+
+    &.active-btn {
+      background-color: i.$clr-white-opacity-large;
+    }
+
+    &.disabled-btn {
+        pointer-events: none;
+        cursor: default;
+      }
+  }
+}
+
+@include i.break(i.$breakpoint-tablet) {
+  .category-list {
+    gap: i.$gap-unit-small;
+
+    &__btn {
+      padding: i.$gap-unit-medium i.$gap-unit-large;
+    }
+  }
+}
+
+@include i.break(i.$breakpoint-desktop) {
+  .category-list {
+    &__btn {
+      transition: i.$transition;
+
+      &:hover {
+        background-color: i.$clr-white-opacity-large;
+      }
+    }
+  }
+}

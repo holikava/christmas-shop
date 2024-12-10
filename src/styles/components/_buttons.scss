@@ -1,21 +1,20 @@
-@use './../general/index' as general;
+@use './../general/index' as i;
 
 .btn {
+    @include i.actionText(i.$fs-action-small, i.$clr-white);
     display: inline-block;
-    font-size: general.$fs-action-small;
-    color: general.$clr-white;
-    background-color: general.$clr-dark;
-    border-radius: general.$border-radius-large;
-    padding: 20px 32px;
+    background-color: i.$clr-dark;
+    border-radius: i.$border-radius-large;
+    padding: i.$gap-unit-large calc(i.$gap-unit-large * 2);
 }
 
-@include general.break(general.$breakpoint-desktop) {
+@include i.break(i.$breakpoint-desktop) {
     .btn {
-        transition: general.$transition;
+        transition: i.$transition;
 
         &:hover {
-            color: general.$clr-dark;
-            background-color: general.$clr-white;
+            color: i.$clr-dark;
+            background-color: i.$clr-white;
         }
     }
 }

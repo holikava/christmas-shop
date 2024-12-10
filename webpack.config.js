@@ -3,9 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const { SplitChunksPlugin } = require("webpack");
-
-const pages = ['template.html', 'gifts.html'];
 
 module.exports = {
     entry: path.join(__dirname, "src", "index.js"),

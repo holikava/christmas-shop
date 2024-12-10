@@ -1,10 +1,10 @@
-const toTopLink = document.getElementById("to-top-link");
+const toTopLink = document.getElementById("to-top-btn");
 
 toTopLink &&
   window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
-      toTopLink.classList.add("show-link");
+      toTopLink.classList.add("show-btn");
     } else {
-      toTopLink.classList.remove("show-link");
+      toTopLink.classList.remove("show-btn");
     }
   });

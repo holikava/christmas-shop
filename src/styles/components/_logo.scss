@@ -1,13 +1,12 @@
-@use "./../general/index" as general;
+@use "./../general/index" as i;
 
 .logo {
+  @include i.actionText(i.$fs-action-small, i.$clr-dark);
   display: flex;
   align-items: center;
-  gap: general.$gap-unit-small;
-  font-size: general.$fs-action-small;
-  text-transform: uppercase;
-  border-radius: general.$border-radius-small;
-  padding: general.$gap-unit-small general.$gap-unit-large;
+  gap: i.$gap-unit-small;
+  border-radius: i.$border-radius-small;
+  padding: i.$gap-unit-small i.$gap-unit-large;
 
   &__img {
     display: inline-block;

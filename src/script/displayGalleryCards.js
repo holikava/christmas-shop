@@ -3,7 +3,7 @@ import healthGift from "./../images/gift-for-health.png";
 import workGift from "./../images/gift-for-work.png";
 import snowflake from "./../images/snowflake.png";
 
-import data from "../gifts.json";
+import data from "./../data/gifts.json";
 
 const galleryContainer = document.getElementById("gifts-container");
 const bestGiftsContainer = document.getElementById("best-gifts-container");
@@ -33,10 +33,10 @@ const displayGiftsCards = (arr, target) => {
                         } alt='${card.category}' >
                     </div>
                     <div class="gifts-card__info">
-                    <span class="gifts-card__tag action-text" tag=${card.category
+                    <span class="gifts-card__tag" tag=${card.category
                       .replace(" ", "-")
                       .toLowerCase()}>${card.category}</span>
-                    <h2 class="gifts-card__title title-text-h3">${
+                    <h2 class="gifts-card__title">${
                       card.name
                     }</h2>
                     </div>
@@ -64,14 +64,14 @@ const displayCategoryList = () => {
 
   const categoryBtns = categories
     .map((category) => {
-      return `<button class="gifts-gallery__category-btn action-text" data-id="${category}" type="button">${category}</button>`;
+      return `<button class="category-list__btn" data-id="${category}" type="button">${category}</button>`;
     })
     .join("");
   categoryContainer.innerHTML += categoryBtns;
 };
 
 const filterCardsByCategory = () => {
-  const filterBtns = document.querySelectorAll(".gifts-gallery__category-btn");
+  const filterBtns = document.querySelectorAll(".category-list__btn");
 
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -94,11 +94,13 @@ const markActiveCategoryBtn = () => {
   categoryContainer.addEventListener("click", (e) => {
     e.preventDefault();
     let activeBtn = document.querySelector(
-      ".gifts-gallery__category-btn_active"
+      ".category-list__btn.active-btn"
     );
     if (activeBtn) {
-      activeBtn.classList.remove("gifts-gallery__category-btn_active");
-      e.target.classList.add("gifts-gallery__category-btn_active");
+      activeBtn.classList.remove("active-btn");
+      activeBtn.classList.remove("disabled-btn");
+      e.target.classList.add("active-btn");
+      e.target.classList.add("disabled-btn");
     }
   });
 };
@@ -173,16 +175,16 @@ const displayModalWindow = (card) => {
   })
 };
 
-const giftsContainer = document.querySelector(".gifts-container");
+// const giftsContainer = document.getElementById(".gifts-container");
 
-giftsContainer.addEventListener("click", (e) => {
-  e.preventDefault();
-  const targetCard = e.target.closest(".gifts-card");
-  const key = targetCard
-    .querySelector(".gifts-card__title")
-    .innerText.toLowerCase();
-  const targetCardData = data.filter(
-    (item) => item.name.toLocaleLowerCase() === key
-  );
-  displayModalWindow(targetCardData[0]);
-});
+// giftsContainer.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   const targetCard = e.target.closest(".gifts-card");
+//   const key = targetCard
+//     .querySelector(".gifts-card__title")
+//     .innerText.toLowerCase();
+//   const targetCardData = data.filter(
+//     (item) => item.name.toLocaleLowerCase() === key
+//   );
+//   displayModalWindow(targetCardData[0]);
+// });

@@ -1,16 +1,17 @@
-@use './../general/index' as general;
+@use './../general/index' as i;
 
 .words {
     text-align: center;
-    padding-block: general.$gap-unit-extra-large;
+    padding-block: i.$gap-unit-extra-large;
 
     &__caption {
-        margin-bottom: general.$gap-unit-medium;
+        @include i.captionText(i.$clr-white);
+        margin-bottom: i.$gap-unit-medium;
     }
 
     &__title {
-        color: general.$clr-white;
-        margin-bottom: general.$gap-unit-large;
+        @include i.titleText(i.$fs-h2, i.$clr-white);
+        margin-bottom: i.$gap-unit-large;
     }
 
 }
